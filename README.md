@@ -1,66 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# ONLINE_WINMART
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Dự án Laravel để xây dựng website thương mại điện tử WinMart. Dưới đây là mô tả chức năng của từng thư mục và tập tin trong dự án.
 
-## About Laravel
+## Cấu trúc thư mục và tập tin
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Thư mục chính
+- **`app/`**: Chứa logic nghiệp vụ của ứng dụng.
+  - `Http/Controllers/`: Các controller xử lý yêu cầu HTTP (ví dụ: `HomeController.php`).
+  - `Models/`: Các model Eloquent đại diện cho bảng trong database (ví dụ: `User.php`).
+  - `Providers/`: Các service provider để đăng ký dịch vụ.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **`bootstrap/`**: Chứa các file khởi động ứng dụng.
+  - `app.php`: File khởi động chính của Laravel.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **`config/`**: Chứa các file cấu hình.
+  - `database.php`: Cấu hình kết nối database.
+  - `app.php`: Cấu hình thông tin ứng dụng (tên, timezone,...).
 
-## Learning Laravel
+- **`database/`**: Quản lý database.
+  - `migrations/`: Các file migration để tạo và chỉnh sửa bảng.
+  - `seeders/`: Các file tạo dữ liệu mẫu.
+  - `factories/`: Tạo dữ liệu giả để test.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **`lang/`**: Chứa các file ngôn ngữ để hỗ trợ đa ngôn ngữ.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **`public/`**: Thư mục công khai, chứa tài nguyên tĩnh.
+  - `css/`: Chứa file CSS (ví dụ: `style.css`).
+  - `js/`: Chứa file JavaScript.
+  - `index.php`: Điểm vào của ứng dụng.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **`resources/`**: Chứa tài nguyên chưa biên dịch.
+  - `css/`: File CSS nguồn (nếu dùng Vite).
+  - `js/`: File JavaScript nguồn.
+  - `views/`: Các file Blade template (giao diện, ví dụ: `welcome.blade.php`).
 
-## Laravel Sponsors
+- **`routes/`**: Chứa các file định tuyến.
+  - `web.php`: Định nghĩa routes cho giao diện web.
+  - `api.php`: Định nghĩa routes cho API.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- **`storage/`**: Lưu trữ file tạm thời và log.
+  - `app/public/`: Lưu file upload.
+  - `logs/`: Lưu file log (ví dụ: `laravel.log`).
+  - `framework/`: Lưu cache, session.
 
-### Premium Partners
+- **`tests/`**: Chứa các file kiểm thử.
+  - `Feature/`: Test tính năng.
+  - `Unit/`: Test đơn vị mã.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- **`vendor/`**: Chứa các thư viện bên thứ ba được cài qua Composer.
 
-## Contributing
+### File quan trọng ở thư mục gốc
+- **`.editorconfig`**: Chuẩn định dạng code (khoảng cách, thụt lề).
+- **`.env`**: File cấu hình môi trường (database, API keys,...). Không đẩy file này lên Git.
+- **`.env.example`**: Bản mẫu của `.env` để chia sẻ cấu trúc.
+- **`.gitattributes`**: Cấu hình cách Git xử lý file.
+- **`.gitignore`**: Chỉ định các file/thư mục không đẩy lên Git.
+- **`artisan`**: File dòng lệnh để chạy lệnh Artisan (ví dụ: `php artisan migrate`).
+- **`composer.json`**: Định nghĩa các thư viện PHP cần thiết.
+- **`composer.lock`**: Ghi lại phiên bản chính xác của các thư viện.
+- **`package.json`**: Định nghĩa các thư viện JavaScript.
+- **`phpunit.xml`**: Cấu hình cho PHPUnit để chạy kiểm thử.
+- **`README.md`**: File hướng dẫn (bạn đang đọc file này).
+- **`vite.config.js`**: Cấu hình Vite (công cụ biên dịch tài nguyên frontend). Không cần thiết nếu dùng HTML/CSS thuần.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Cách cài đặt và chạy dự án
+1. **Clone dự án**:
+   ```bash
+   git clone https://github.com/your-username/ONLINE_WINMART.git
+   ```
+2. **Cài đặt thư viện**:
+   ```bash
+   composer install
+   ```
+3. **Cấu hình môi trường**:
+   - Sao chép `.env.example` thành `.env` và cập nhật thông tin database.
+4. **Chạy migration**:
+   ```bash
+   php artisan migrate
+   ```
+5. **Khởi động server**:
+   ```bash
+   php artisan serve
+   ```
+   Truy cập `http://localhost:8000` để xem giao diện.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Ghi chú
+- Dự án sử dụng HTML/CSS thuần cho frontend.
+- Tập trung làm việc trong `resources/views/` (Blade templates) và `public/` (CSS, hình ảnh).
+- Không chỉnh sửa trực tiếp thư mục `vendor/`.
